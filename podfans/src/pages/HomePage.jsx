@@ -175,13 +175,13 @@ const HomePage = () => {
       </div> */}
 
       <h2 className="text-2xl font-bold mb-4 flex items-center text-black">
-        <AiFillThunderbolt className="mr-2 text-blue-300" />
+        <AiFillThunderbolt className="mr-2 text-pink-300" />
         <span>Discover more Podcasts</span>
       </h2>
       <div className="mb-4 flex space-x-2">
         <button
           onClick={() => handleSortChange('A-Z')}
-          className={`px-4 py-2 rounded-full border ${sortOrder === 'A-Z' ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'}`}
+          className={`px-4 py-2 rounded-full border ${sortOrder === 'A-Z' ? 'bg-pink-900 text-white' : 'bg-white text-pink-900'}`}
         >
           A-Z
         </button>

@@ -23,20 +23,20 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-navy-900 p-4 shadow-lg">
+    <header className="bg-pink-500 p-4 shadow-lg">
       <div className="container mx-auto">
         <div className="flex justify-between items-start">
           <div className="flex flex-col items-start">
             <Link to="/home" className="text-white text-3xl font-bold flex items-center hover:text-blue-300 transition duration-300 mb-2">
-              <AiFillThunderbolt className="mr-2 text-blue-300" />
+              <AiFillThunderbolt className="mr-2 text-pink-300" />
               PodPlay
             </Link>
             <nav className="flex flex-col space-y-2">
-              <Link to="/home" className="text-white text-lg flex items-center hover:text-blue-300 transition duration-300 font-bold">
+              <Link to="/home" className="text-white text-lg flex items-center hover:text-pink-300 transition duration-300 font-bold">
                 <RiHomeLine className="mr-2" />
                 Home
               </Link>
-              <Link to="/favourites" className="text-white text-lg flex items-center hover:text-blue-300 transition duration-300 font-bold">
+              <Link to="/favourites" className="text-white text-lg flex items-center hover:text-pink-300 transition duration-300 font-bold">
                 <FaRegHeart className="mr-2" />
                 Favourites
               </Link>
@@ -47,7 +47,7 @@ const Header = () => {
           </div>
           <button
             onClick={handleLogout}
-            className="bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded-full flex items-center transition duration-300"
+            className="bg-green-400 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center transition duration-300"
           >
             <AiOutlineLogout className="mr-2" />
             Logout

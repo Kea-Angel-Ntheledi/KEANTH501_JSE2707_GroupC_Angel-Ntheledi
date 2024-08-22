@@ -14,12 +14,12 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-navy-900">
-      <div className="bg-navy-800 p-8 rounded-lg shadow-lg w-96">
+    <div className="flex items-center justify-center min-h-screen bg-pink-300">
+      <div className="bg-pink-500 p-8 rounded-lg shadow-lg w-96">
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-white flex items-center justify-center">
-            <AiFillThunderbolt className="mr-2 text-blue-300" />
-            <span>PodPlay</span>
+            <AiFillThunderbolt className="mr-2 text-pink-300" />
+            <span>Podfans</span>
           </h2>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -47,7 +47,7 @@ const LoginPage = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300"
+            className="w-full bg-blue-700 hover:bg-pink-200 text-white px-4 py-2 rounded-lg transition duration-300"
           >
             Login
           </button>
