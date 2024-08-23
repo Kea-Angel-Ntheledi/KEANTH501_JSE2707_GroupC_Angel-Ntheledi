@@ -29,13 +29,13 @@ const LoginPage = () => {
               id="email"
               name="email"
               type="email"
-              placeholder="Enter your email"
+              placeholder="Enter your email-address..."
               className="w-full px-3 py-2 rounded-lg bg-navy-700 text-black border border-navy-600 focus:outline-none focus:border-blue-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-white">Password</label>
+            <label htmlFor="password" className="block text-white">Your Password</label>
             <input
               id="password"
               name="password"

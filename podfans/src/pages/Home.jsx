@@ -175,8 +175,7 @@ const HomePage = () => {
       </div> */}
 
       <h2 className="text-2xl font-bold mb-4 flex items-center text-black">
-        <AiFillThunderbolt className="mr-2 text-pink-300" />
-        <span>Discover more Podcasts</span>
+        <span className='items-center'>😃Discover</span>
       </h2>
       <div className="mb-4 flex space-x-2">
         <button

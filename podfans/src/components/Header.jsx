@@ -40,7 +40,6 @@ const Header = () => {
               to="/home"
               className="text-white text-3xl font-bold flex items-center hover:text-blue-300 transition duration-300"
             >
-              <AiFillThunderbolt className="mr-2 text-pink-300" />
               PodPlay
             </Link>
             <nav className="flex space-x-4">
