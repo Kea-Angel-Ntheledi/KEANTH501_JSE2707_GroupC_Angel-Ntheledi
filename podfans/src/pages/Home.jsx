@@ -187,25 +187,25 @@ const HomePage = () => {
         </button>
         <button
           onClick={() => handleSortChange('Z-A')}
-          className={`px-4 py-2 rounded-full border ${sortOrder === 'Z-A' ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'}`}
+          className={`px-4 py-2 rounded-full border ${sortOrder === 'Z-A' ? 'bg-blue-900 text-white' : 'bg-white text-pink-900'}`}
         >
           Z-A
         </button>
         <button
           onClick={() => handleSortChange('Most Recent')}
-          className={`px-4 py-2 rounded-full border ${sortOrder === 'Most Recent' ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'}`}
+          className={`px-4 py-2 rounded-full border ${sortOrder === 'Most Recent' ? 'bg-blue-900 text-white' : 'bg-white text-pink-900'}`}
         >
           Most Recent
         </button>
         <button
           onClick={() => handleSortChange('Oldest')}
-          className={`px-4 py-2 rounded-full border ${sortOrder === 'Oldest' ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'}`}
+          className={`px-4 py-2 rounded-full border ${sortOrder === 'Oldest' ? 'bg-blue-900 text-white' : 'bg-white text-pink-900'}`}
         >
           Oldest
         </button>
         <select
           onChange={handleGenreChange}
-          className="px-4 py-2 rounded-full border bg-white text-blue-900"
+          className="px-4 py-2 rounded-full border bg-white text-pink-900"
         >
           {genres.map((genre) => (
             <option key={genre.id} value={genre.id}>

@@ -1,12 +1,12 @@
 import 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/Home';
 import PodcastPage from './components/PodcastPage';
 import GenrePage from './components/GenrePage';
-import FavouritesPage from './pages/FavouritesPage';
+import FavouritesPage from './pages/Favourites';
 import Header from './components/Header';
-import LoginPage from './pages/LoginPage';
-import SearchResults from './pages/SearchResults';
+import LoginPage from './pages/Login';
+import SearchResults from './pages/SearchPart';
 
 
 const App = () => {

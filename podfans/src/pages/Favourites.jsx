@@ -82,25 +82,25 @@ const FavouritesPage = () => {
       <div className="mb-4 flex space-x-2">
         <button
           onClick={() => handleSortChange('A-Z')}
-          className={`px-4 py-2 rounded-full border ${sortOrder === 'A-Z' ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'}`}
+          className={`px-4 py-2 rounded-full border ${sortOrder === 'A-Z' ? 'bg-pink-900 text-white' : 'bg-white text-blue-900'}`}
         >
           A-Z
         </button>
         <button
           onClick={() => handleSortChange('Z-A')}
-          className={`px-4 py-2 rounded-full border ${sortOrder === 'Z-A' ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'}`}
+          className={`px-4 py-2 rounded-full border ${sortOrder === 'Z-A' ? 'bg-pink-900 text-white' : 'bg-white text-blue-900'}`}
         >
           Z-A
         </button>
         <button
           onClick={() => handleSortChange('Most Recent')}
-          className={`px-4 py-2 rounded-full border ${sortOrder === 'Most Recent' ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'}`}
+          className={`px-4 py-2 rounded-full border ${sortOrder === 'Most Recent' ? 'bg-pink-900 text-white' : 'bg-white text-blue-900'}`}
         >
           Most Recent
         </button>
         <button
           onClick={() => handleSortChange('Oldest')}
-          className={`px-4 py-2 rounded-full border ${sortOrder === 'Oldest' ? 'bg-blue-900 text-white' : 'bg-white text-blue-900'}`}
+          className={`px-4 py-2 rounded-full border ${sortOrder === 'Oldest' ? 'bg-pink-900 text-white' : 'bg-white text-blue-900'}`}
         >
           Oldest
         </button>
@@ -108,7 +108,7 @@ const FavouritesPage = () => {
 
       {isLoading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-900"></div>
         </div>
       ) : sortedEpisodes.length === 0 ? (
         <p className="text-gray-700">No liked episodes found.</p>
@@ -116,11 +116,11 @@ const FavouritesPage = () => {
         <ul className="space-y-4">
           {sortedEpisodes.map((episode) => (
             <li key={episode.id} className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
-              <div className="flex flex-col flex-grow mr-4">
+              <div className="flex flex-col flex-grow mr-4 bg-pink-300">
                 <Link to={`/podcast/${episode.podcastId}`} className="font-bold text-gray-900">{episode.title}</Link>
                 <p className="text-gray-700 mb-2">{episode.description}</p>
                 <p className="text-gray-600 mb-2">Season: {episode.season}, Episode: {episode.episode}</p>
-                <audio controls src={episode.file} className="w-full"></audio>
+                <audio controls src={episode.file} className="w-full bg-pink-300"></audio>
               </div>
               <button
                 onClick={() => handleUnlikeEpisode(episode.id)}

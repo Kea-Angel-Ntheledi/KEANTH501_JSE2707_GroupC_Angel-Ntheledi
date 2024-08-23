@@ -7,9 +7,7 @@ const PodcastPage = () => {
   const [podcast, setPodcast] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSeason, setSelectedSeason] = useState(0);
-  const [likedEpisodes, setLikedEpisodes] = useState(() => {
-    return JSON.parse(localStorage.getItem('likedEpisodes')) || [];
-  });
+  const [likedEpisodes, setLikedEpisodes] = useState(() => JSON.parse(localStorage.getItem('likedEpisodes')) || []);
   const [seasonEpisodesCount, setSeasonEpisodesCount] = useState([]);
 
   useEffect(() => {
@@ -22,12 +20,9 @@ const PodcastPage = () => {
         }
         const data = await response.json();
         setPodcast(data);
-        console.log('Podcast Data:', data);
 
         // Calculate episode counts for each season
-        const episodeCounts = data.seasons.map(season => season.episodes.length);
-        setSeasonEpisodesCount(episodeCounts);
-
+        setSeasonEpisodesCount(data.seasons.map(season => season.episodes.length));
       } catch (error) {
         console.error('Error fetching podcast:', error);
       } finally {
@@ -43,27 +38,23 @@ const PodcastPage = () => {
   };
 
   const handleLikeEpisode = (episode, index) => {
+    const episodeWithId = {
+      ...episode,
+      id: `${id}-${selectedSeason}-${index}`,
+      podcastId: id,
+      season: selectedSeason + 1
+    };
+
     setLikedEpisodes((prevLikedEpisodes) => {
-      const episodeWithId = {
-        ...episode,
-        id: `${id}-${selectedSeason}-${index}`,
-        podcastId: id,
-        season: selectedSeason + 1
-      };
-      
       const isLiked = prevLikedEpisodes.some(ep => ep.id === episodeWithId.id);
       const updatedLikedEpisodes = isLiked
         ? prevLikedEpisodes.filter(ep => ep.id !== episodeWithId.id)
         : [...prevLikedEpisodes, episodeWithId];
-      
+
       localStorage.setItem('likedEpisodes', JSON.stringify(updatedLikedEpisodes));
       return updatedLikedEpisodes;
     });
   };
-
-  useEffect(() => {
-    console.log('Updated Liked Episodes:', likedEpisodes);
-  }, [likedEpisodes]);
 
   if (isLoading) {
     return (
@@ -80,12 +71,12 @@ const PodcastPage = () => {
   return (
     <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <h1 className="text-4xl font-bold mb-6 text-gray-900">{podcast.title}</h1>
-      
+
       <div className="flex flex-col md:flex-row mb-8">
         <img src={podcast.image} alt="Podcast cover" className="h-48 w-48 md:h-64 md:w-64 object-cover mr-0 md:mr-8 mb-4 md:mb-0 rounded-lg border border-gray-300" />
         <div className="flex-1">
           <p className="mb-6 text-gray-700">{podcast.description}</p>
-          {podcast.genres && podcast.genres.length > 0 && (
+          {podcast.genres?.length > 0 && (
             <div className="mb-6">
               <h3 className="text-xl font-semibold text-gray-800">Genres</h3>
               <div className="text-gray-600">
@@ -95,8 +86,8 @@ const PodcastPage = () => {
           )}
         </div>
       </div>
-      
-      {podcast.seasons && podcast.seasons.length > 0 && (
+
+      {podcast.seasons?.length > 0 && (
         <div className="mb-6">
           <h3 className="text-xl font-semibold text-gray-800 mb-2">Seasons</h3>
           <div className="flex items-center">
@@ -105,7 +96,7 @@ const PodcastPage = () => {
               onChange={handleSeasonChange}
               className="border border-gray-300 rounded p-2"
             >
-              {podcast.seasons.map((season, index) => (
+              {podcast.seasons.map((_, index) => (
                 <option key={index} value={index}>
                   Season {index + 1}
                 </option>
@@ -118,7 +109,7 @@ const PodcastPage = () => {
         </div>
       )}
 
-      {podcast.seasons && podcast.seasons.length > 0 && (
+      {podcast.seasons?.length > 0 && (
         <div>
           <ul className="space-y-4">
             {podcast.seasons[selectedSeason].episodes.map((episode, index) => (

@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
 const GenrePage = () => {
@@ -7,26 +7,25 @@ const GenrePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchGenre = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch(`https://podcast-api.netlify.app/genre/${id}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch genre');
-        }
-        const data = await response.json();
-        setGenre(data);
-        console.log(data)
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
+  const fetchGenre = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`https://podcast-api.netlify.app/genre/${id}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch genre');
       }
-    };
-
-    fetchGenre();
+      const data = await response.json();
+      setGenre(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   }, [id]);
+
+  useEffect(() => {
+    fetchGenre();
+  }, [fetchGenre]);
 
   if (isLoading) {
     return (
